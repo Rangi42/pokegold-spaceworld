@@ -91,7 +91,7 @@ IntroScene1:
 	ld [wIntroTilesPointer + 1], a
 
 ; Set destination BG map pointer
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld a, l
 	ld [wIntroBGMapPointer + 0], a
 	ld a, h
@@ -510,9 +510,9 @@ endr
 	ld [wVBCopySrc], a
 	ld a, h
 	ld [wVBCopySrc + 1], a
-	ld a, LOW(vBGMap0 + 15 * TILEMAP_WIDTH)
+	ld a, LOW(vTilemap0 + 15 * TILEMAP_WIDTH)
 	ld [wVBCopyDst], a
-	ld a, HIGH(vBGMap0 + 15 * TILEMAP_WIDTH)
+	ld a, HIGH(vTilemap0 + 15 * TILEMAP_WIDTH)
 	ld [wVBCopyDst + 1], a
 	ld a, 2
 	ld [wVBCopySize], a
@@ -607,7 +607,7 @@ IntroScene6:
 	ld [wIntroTilesPointer + 0], a
 	ld a, HIGH(Intro_GrassMeta)
 	ld [wIntroTilesPointer + 1], a
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld a, l
 	ld [wIntroBGMapPointer + 0], a
 	ld a, h
@@ -992,7 +992,7 @@ Intro_BlankTilemapAndBGMap:
 	or c
 	jr nz, .blank_bgmap
 
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld de, wOverworldMapBlocks
 	lb bc, BANK(@), $40
 	call Request2bpp

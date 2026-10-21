@@ -31,5 +31,5 @@ vPicrossPlayArea::   ds $90 tiles
 
 ENDU
 
-vBGMap0:: ds TILEMAP_AREA
-vBGMap1:: ds TILEMAP_AREA
+vTilemap0:: ds TILEMAP_AREA
+vTilemap1:: ds TILEMAP_AREA

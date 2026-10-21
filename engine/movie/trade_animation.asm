@@ -138,7 +138,7 @@ RunTradeAnimScript:
 	call DisableLCD
 	callfar ClearSpriteAnims
 	hlbgcoord 0, 0
-	ld bc, STARTOF(VRAM) + SIZEOF(VRAM) - vBGMap0
+	ld bc, STARTOF(VRAM) + SIZEOF(VRAM) - vTilemap0
 	ld a, '　'
 	call ByteFill
 	ld hl, TradeGameBoyGFX
@@ -421,7 +421,7 @@ TradeAnim_TubeToPlayer8:
 	call DisableLCD
 	callfar ClearSpriteAnims
 	hlbgcoord 0, 0
-	ld bc, STARTOF(VRAM) + SIZEOF(VRAM) - vBGMap0
+	ld bc, STARTOF(VRAM) + SIZEOF(VRAM) - vTilemap0
 	ld a, '　'
 	call ByteFill
 	xor a
@@ -524,7 +524,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	push af
 	call ClearBGPalettes
 	call WaitForAutoBgMapTransfer
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	call ClearTileMap
 	hlcoord 0, 0
@@ -543,7 +543,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	call ByteFill
 	call WaitBGMap
 	call WaitForAutoBgMapTransfer
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	call ClearTileMap
 	ret
@@ -638,7 +638,7 @@ TradeAnim_TextboxScrollStart:
 
 TradeAnim_ScrollOutRight:
 	call WaitForAutoBgMapTransfer
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	call WaitBGMap
 	ld a, $7
@@ -647,7 +647,7 @@ TradeAnim_ScrollOutRight:
 	ldh [hWY], a
 	call DelayFrame
 	call WaitForAutoBgMapTransfer
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	call ClearTileMap
 	call TradeAnim_IncrementJumptableIndex
@@ -663,14 +663,14 @@ TradeAnim_ScrollOutRight2:
 	ret
 
 .done:
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	call WaitBGMap
 	ld a, $7
 	ldh [hWX], a
 	ld a, $90
 	ldh [hWY], a
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	call TradeAnim_AdvanceScriptPointer
 	ret
@@ -761,7 +761,7 @@ ShowOTTrademonStats:
 TrademonStats_MonTemplate:
 	call WaitForAutoBgMapTransfer
 	call TradeAnim_BlankTilemap
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 5, 0
 	ld b, 6
@@ -781,7 +781,7 @@ TrademonStats_MonTemplate:
 TrademonStats_WaitBGMap:
 	call WaitBGMap
 	call WaitForAutoBgMapTransfer
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	ret
 

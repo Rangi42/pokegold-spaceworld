@@ -77,7 +77,7 @@ InitToolgearBuffer::
 
 	call UpdateToolgear
 
-	ld hl, vBGMap1
+	ld hl, vTilemap1
 	ld bc, $4 ; 4 tiles = 2 rows
 	bgcoord de, 0, 0, wToolgearBuffer
 	call Get2bpp

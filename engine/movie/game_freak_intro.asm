@@ -4,7 +4,7 @@ GameFreakIntro::
 	call DisableLCD
 	call ClearVRAM
 
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	xor a
 	ldh [hBGMapAddress], a
@@ -57,7 +57,7 @@ GameFreakIntro::
 .Init:
 	call DisableLCD
 
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld bc, TILEMAP_WIDTH * SCREEN_HEIGHT
 	xor a
 	call ByteFill

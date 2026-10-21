@@ -380,15 +380,15 @@ LoadMapTimeOfDay::
 	ret
 
 .ClearBGMap
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ld [wBGMapAnchor + 1], a
-	xor a ; LOW(vBGMap0)
+	xor a ; LOW(vTilemap0)
 	ld [wBGMapAnchor], a
 	ldh [hSCY], a
 	ldh [hSCX], a
 
 	ld a, '■'
-	ld bc, vBGMap1 - vBGMap0
+	ld bc, vTilemap1 - vTilemap0
 	hlbgcoord 0, 0
 	call ByteFill
 	ret

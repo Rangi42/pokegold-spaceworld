@@ -72,9 +72,9 @@ Init::
 
 	ld a, $ff
 	ldh [hSerialConnectionStatus], a
-	ld h, HIGH(vBGMap0)
+	ld h, HIGH(vTilemap0)
 	call BlankBGMap
-	ld h, HIGH(vBGMap1)
+	ld h, HIGH(vTilemap1)
 	call BlankBGMap
 	ld a, LCDC_DEFAULT
 	ldh [rLCDC], a
@@ -84,7 +84,7 @@ Init::
 	predef CheckSGB
 	ld a, IE_DEFAULT
 	ldh [rIE], a
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	xor a
 	ldh [hBGMapAddress], a

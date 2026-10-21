@@ -1,5 +1,5 @@
 PikachuMiniGame::
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress + 1], a
 	call .Init
 	call DelayFrame
@@ -8,7 +8,7 @@ PikachuMiniGame::
 	jr nc, .loop
 
 ; exit
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress + 1], a
 	ld de, MUSIC_NONE
 	call PlayMusic
@@ -40,7 +40,7 @@ PikachuMiniGame::
 	ld [wPikachuMinigameTilesPointer + 1], a
 
 ; BG map destination
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld a, l
 	ld [wPikachuMinigameBGMapPointer], a
 	ld a, h
@@ -137,7 +137,7 @@ PikachuMiniGame::
 	ret
 
 PikachuMiniGame_ClearBothTilemaps:
-	ld hl, vBGMap1
+	ld hl, vTilemap1
 	ld bc, SCREEN_WIDTH * TILEMAP_HEIGHT
 .clear_bgmap
 	ld [hl], 0
@@ -1142,7 +1142,7 @@ PikachuMiniGame_ScrollScene:
 	srl a
 	ld e, a
 	ld d, 0
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	add hl, de
 	ld a, l
 	ldh [hRedrawRowOrColumnDest], a

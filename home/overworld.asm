@@ -104,8 +104,8 @@ ScheduleSouthRowRedraw::
 	add hl, bc
 	; the following 4 lines wrap us from bottom to top if necessary
 	ld a, h
-	and HIGH(vBGMap1 - vBGMap0 - $01)
-	or HIGH(vBGMap0)
+	and HIGH(vTilemap1 - vTilemap0 - $01)
+	or HIGH(vTilemap0)
 	ldh [hRedrawRowOrColumnDest + 1], a
 	ld a, l
 	ldh [hRedrawRowOrColumnDest], a

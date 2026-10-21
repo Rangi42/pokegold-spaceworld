@@ -310,7 +310,7 @@ ClearBattleRAM:
 	ld hl, hBGMapAddress
 	xor a
 	ld [hli], a
-	ld [hl], HIGH(vBGMap0)
+	ld [hl], HIGH(vTilemap0)
 	ld a, LCDC_DEFAULT & ~LCDC_WIN_MAP
 	ldh [rLCDC], a
 	ld a, [wMapId]
@@ -490,7 +490,7 @@ InitBattleDisplay:
 	call DisableLCD
 	call LoadFont
 	call Call_LoadBattleFontsHPBar
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	lb bc, 4, 0
 	ld a, '　'
 	call ByteFill

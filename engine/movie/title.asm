@@ -62,7 +62,7 @@ TitleSequenceInit::
 
 	farcall ClearSpriteAnims
 	ld hl, vChars0
-	ld bc, vBGMap0 - vChars0
+	ld bc, vTilemap0 - vChars0
 
 .clear_loop
 	ld [hl], $00
@@ -109,7 +109,7 @@ TitleSequenceInit::
 	ld a, $00
 	ld [hli], a
 
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld bc, 128 tiles
 	ld a, '　'
 	call ByteFill

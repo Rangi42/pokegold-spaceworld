@@ -10,7 +10,7 @@ ReanchorBGMap_NoOAMUpdate::
 	ldh [hBGMapMode], a
 	xor a
 	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap1)
+	ld a, HIGH(vTilemap1)
 	ldh [hBGMapAddress+1], a
 	call LoadMapPart
 	call WaitBGMap
@@ -18,9 +18,9 @@ ReanchorBGMap_NoOAMUpdate::
 	ldh [hBGMapMode], a
 	ldh [hWY], a
 	call .Transfer
-	xor a ; LOW(vBGMap0)
+	xor a ; LOW(vTilemap0)
 	ld [wBGMapAnchor], a
-	ld a, HIGH(vBGMap0)
+	ld a, HIGH(vTilemap0)
 	ldh [hBGMapAddress+1], a
 	ld [wBGMapAnchor+1], a
 	xor a
@@ -34,7 +34,7 @@ ReanchorBGMap_NoOAMUpdate::
 	ld hl, wTileMapBackup
 	ld bc, (SCREEN_WIDTH * 6) + 8
 	call ByteFill
-	ld hl, vBGMap0
+	ld hl, vTilemap0
 	ld c, 8
 .loop
 	push bc

@@ -65,7 +65,7 @@ ConvertTrainerBattlePokeballTilesTo2bpp:
 	jr nz, .loop
 
 	ld de, wOverworldMapBlocks
-	hlbgcoord 0, 0, vBGMap0
+	hlbgcoord 0, 0, vTilemap0
 	ld b, BANK(@)
 	ld c, $28
 	call Request2bpp
