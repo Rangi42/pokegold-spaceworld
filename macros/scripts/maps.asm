@@ -142,6 +142,8 @@ ENDM
 
 MACRO def_warp_events
 	REDEF _NUM_WARP_EVENTS EQUS "_NUM_WARP_EVENTS_\@"
+	assert {_NUM_WARP_EVENTS} <= MAX_NUM_WARP_EVENTS, \
+		"Too many `warp_event`s in this map (max {d:MAX_NUM_WARP_EVENTS})"
 	db {_NUM_WARP_EVENTS}
 	DEF {_NUM_WARP_EVENTS} = 0
 ENDM
@@ -160,6 +162,8 @@ ENDM
 
 MACRO def_bg_events
 	REDEF _NUM_BG_EVENTS EQUS "_NUM_BG_EVENTS_\@"
+	assert {_NUM_BG_EVENTS} <= MAX_NUM_BG_EVENTS, \
+		"Too many `bg_event`s in this map (max {d:MAX_NUM_BG_EVENTS})"
 	db {_NUM_BG_EVENTS}
 	DEF {_NUM_BG_EVENTS} = 0
 ENDM
@@ -174,6 +178,8 @@ ENDM
 
 MACRO def_object_events
 	REDEF _NUM_OBJECT_EVENTS EQUS "_NUM_OBJECT_EVENTS_\@"
+	assert {_NUM_OBJECT_EVENTS} <= NUM_OBJECTS, \
+		"Too many `object_event`s in this map (max {d:NUM_OBJECTS})"
 	db {_NUM_OBJECT_EVENTS}
 	DEF {_NUM_OBJECT_EVENTS} = 0
 ENDM
